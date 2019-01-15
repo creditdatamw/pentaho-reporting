@@ -181,28 +181,6 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.karaf</groupId>
-      <artifactId>org.apache.karaf.main</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.karaf.jaas</groupId>
-      <artifactId>org.apache.karaf.jaas.boot</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.karaf.jaas</groupId>
-      <artifactId>org.apache.karaf.jaas.config</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>pentaho</groupId>
-      <artifactId>pentaho-karaf-assembly</artifactId>
-      <type>zip</type>
-      <classifier>prd</classifier>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
       <groupId>org.eclipse.swt</groupId>
       <artifactId>swt-linux-x86_64</artifactId>
       <scope>compile</scope>
@@ -420,25 +398,6 @@
               </configuration>
             </execution>
             <execution>
-              <id>unpack-karaf</id>
-              <phase>generate-resources</phase>
-              <goals>
-                <goal>unpack</goal>
-              </goals>
-              <configuration>
-                <artifactItems>
-                  <artifactItem>
-                    <groupId>pentaho</groupId>
-                    <artifactId>pentaho-karaf-assembly</artifactId>
-                    <type>zip</type>
-                    <classifier>prd</classifier>
-                    <overWrite>true</overWrite>
-                    <outputDirectory>${stage.dir}</outputDirectory>
-                  </artifactItem>
-                </artifactItems>
-              </configuration>
-            </execution>
-            <execution>
               <id>libs</id>
               <phase>process-resources</phase>
               <goals>
@@ -489,21 +448,6 @@
                 <resources>
                   <resource>
                     <directory>${project.basedir}/src/main/resources/resource</directory>
-                  </resource>
-                </resources>
-              </configuration>
-            </execution>
-            <execution>
-              <id>copy-karaf</id>
-              <phase>process-resources</phase>
-              <goals>
-                <goal>copy-resources</goal>
-              </goals>
-              <configuration>
-                <outputDirectory>${stage.dir.designer}/system/karaf</outputDirectory>
-                <resources>
-                  <resource>
-                    <directory>${stage.dir}/pentaho-karaf-assembly/</directory>
                   </resource>
                 </resources>
               </configuration>
